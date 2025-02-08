@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ album | capfirst }}{% endblock title %}
+{% block content %}
+<br>
+    <p>Tu Album seleccionado es: <strong>{{ album | capfirst }}</strong></p>
+    <h3>Informaciòn del Album</h3>
+    <ul>
+        <li>Nombre del album: {{album.titulo_album}}</li>
+        <li>Año de lanzamiento: {{album.anio_lanzamiento}}</li>
+        <li>Genero Musical: {{album.genero_musica}}</li>
+        <li>Artista Asociado: {{album.artista_asociado}}</li>
+    </ul>
+{% endblock content %}

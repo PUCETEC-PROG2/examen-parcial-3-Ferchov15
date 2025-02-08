@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Página inicial{% endblock title %}
+{% block content %}
+<style>
+  .card {
+    background-color:rgb(72, 109, 146); 
+    border: 0px solid #dee2e6; 
+    border-radius: 0.25rem; 
+}
+
+.card-img-top {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.card-body {
+    padding: 1rem; 
+}
+.add-icon {
+    font-size: 30px;
+    color: black;
+    background-color: #39FF14;
+    border-radius: 50%;  /* Círculo */
+    padding: 10px;
+    position: absolute;
+    right: 140px; 
+    top: 147px;
+    cursor: pointer;
+}
+
+.add-icon i {
+    margin-top: 8px;
+}
+</style>
+<h2 class="p-2" style="color:black">Nuestro Artistas</h2>
+<a href="{% url "album_manager:crear_artista" %}" class="add-icon">
+    <i class="fa fa-plus"></i>
+</a>
+<div class = "row">
+    {% for artista in artistas %}
+    <div class="col-sm-4">
+      <br>
+      <div class="card" style="width: 100%;">
+        <div class="card-body" style="color:black" >
+            <h5 class="card-title">{{ artista.nombre_artista | capfirst }}</h5>
+          <p class="card-text">Pais de origen: {{album.paises_origen}}</p>
+          <a href="artista/{{artista.pk}}" class="btn btn-primary">
+            <i class="fa-solid fa-eye"></i>
+          </a>
+            <a href="edit_artista/{{artista.pk}}" class="btn btn-primary">
+              <i class="fa-solid fa-pencil"></i>
+            </a>
+            <a href="delet_artista/{{artista.pk}}" class="btn btn-danger">
+              <i class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock content %}

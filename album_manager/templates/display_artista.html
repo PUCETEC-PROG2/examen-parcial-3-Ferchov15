@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ pokemon | capfirst }}{% endblock title %}
+{% block content %}
+<br>
+    <p>Tu Artista seleccionado es: <strong>{{ artista | capfirst }}</strong></p>
+    <h3>Informaciòn del Artista</h3>
+    <ul>
+        <li>Nombre: {{artista.nombre_artista}}</li>
+        <li>Pais Origen: {{artista.paises_origen}}</li>
+    </ul>
+{% endblock content %}
